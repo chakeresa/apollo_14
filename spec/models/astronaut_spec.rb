@@ -38,7 +38,9 @@ describe Astronaut, type: :model do
     end
 
     it "alphabetizes missions for an astronaut" do
-      # test
+      alpha_missions = [@mission_1.title, @mission_2.title, @mission_3.title].sort
+
+      expect(@astronaut_1.alphabetical_missions.pluck(:title)).to eq(alpha_missions)
     end
   end
 end
