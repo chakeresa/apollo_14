@@ -19,7 +19,7 @@ RSpec.describe "As a visitor", type: :feature do
 
     it "displays info for all astronauts" do
       visit astronauts_path
-      
+
       within("#astronaut-#{@astronaut_1.id}") do
         expect(page).to have_content("Name: #{@astronaut_1.name}")
         expect(page).to have_content("Age: #{@astronaut_1.age}")
@@ -31,6 +31,14 @@ RSpec.describe "As a visitor", type: :feature do
         expect(page).to have_content("Age: #{@astronaut_2.age}")
         expect(page).to have_content("Job: #{@astronaut_2.job}")
       end
+    end
+
+    it "shows the average age of all astronauts" do
+      visit astronauts_path
+
+      avg_age = (@astronaut_1.age + @astronaut_2.age).to_f / 2
+
+      expect(page).to have_content("Average Age: #{avg_age}")
     end
   end
 end
