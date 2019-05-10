@@ -18,6 +18,8 @@ RSpec.describe "As a visitor", type: :feature do
     end
 
     it "displays info for all astronauts" do
+      visit astronauts_path
+      
       within("#astronaut-#{@astronaut_1.id}") do
         expect(page).to have_content("Name: #{@astronaut_1.name}")
         expect(page).to have_content("Age: #{@astronaut_1.age}")
