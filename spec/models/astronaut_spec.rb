@@ -42,5 +42,11 @@ describe Astronaut, type: :model do
 
       expect(@astronaut_1.alphabetical_missions.pluck(:title)).to eq(alpha_missions)
     end
+
+    it "calculates total time in space for an astronaut" do
+      total_time = @mission_1.time_in_space + @mission_2.time_in_space + @mission_3.time_in_space
+
+      expect(@astronaut_1.total_time_in_space).to eq(total_time)
+    end
   end
 end
