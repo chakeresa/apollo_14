@@ -38,7 +38,9 @@ RSpec.describe "As a visitor", type: :feature do
 
       avg_age = (@astronaut_1.age + @astronaut_2.age).to_f / 2
 
-      expect(page).to have_content("Average Age: #{avg_age}")
+      within("#statistics") do
+        expect(page).to have_content("Average Age: #{avg_age}")
+      end
     end
   end
 end
