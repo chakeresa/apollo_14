@@ -5,9 +5,9 @@ RSpec.describe "As a visitor", type: :feature do
     before(:each) do
       @astronaut_1 = Astronaut.create!(name: "Buzz Aldrin", age: 40, job: "Space Guy")
       @astronaut_2 = Astronaut.create!(name: "Neil Armstrong", age: 37, job: "Commander")
-      #   @author_1 = @book_1.authors.create!(name: "Wilkie Collins")
-      #   @author_2 = @book_1.authors.create!(name: "Charles Dickens")
-      #   @author_3 = @book_2.authors.create!(name: "Harper Lee")
+      @mission_1 = @astronaut_1.missions.create!(title: "Capricorn 4", time_in_space: 14)
+      @mission_2 = @astronaut_1.missions.create!(title: "Apollo 13", time_in_space: 10)
+      @mission_3 = @astronaut_1.missions.create!(title: "Gemini 7", time_in_space: 30)
     end
 
     it "loads the page" do
@@ -40,6 +40,18 @@ RSpec.describe "As a visitor", type: :feature do
 
       within("#statistics") do
         expect(page).to have_content("Average Age: #{avg_age}")
+      end
+    end
+
+    it "lists an astronauts missions alphabetically by title" do
+      visit astronauts_path
+
+      within("#astronaut-#{@astronaut_1.id}") do
+        within(".missions") do
+          expect(page.all('li')[0]).to have_content("Apollo 13")
+          expect(page.all('li')[1]).to have_content("Capricorn 4")
+          expect(page.all('li')[2]).to have_content("Gemini 7")
+        end
       end
     end
   end

@@ -7,5 +7,13 @@
     <p>Name: <%= astronaut.name %></p>
     <p>Age: <%= astronaut.age %></p>
     <p>Job: <%= astronaut.job %></p>
+    <div class="missions">
+      <h3>Missions:</h3>
+      <ul>
+        <% astronaut.missions.each do |mission| %>
+          <li> <%= mission.title %>
+        <% end %>
+      </ul>
+    </div>
   </div>
 <% end %>
