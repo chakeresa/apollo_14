@@ -28,13 +28,17 @@ describe Astronaut, type: :model do
     end
   end
 
-  # describe 'Instance Methods' do
-  #   before(:each) do
-  #     @astronaut_1 = Astronaut.create!(name: "Buzz Aldrin", age: 40, job: "Space Guy")
-  #     @astronaut_2 = Astronaut.create!(name: "Neil Armstrong", age: 37, job: "Commander")
-  #     @mission_1 = @astronaut_1.missions.create!(title: "Capricorn 4", time_in_space: 14)
-  #     @mission_2 = @astronaut_1.missions.create!(title: "Apollo 13", time_in_space: 10)
-  #     @mission_3 = @astronaut_1.missions.create!(title: "Gemini 7", time_in_space: 30)
-  #   end
-  # end
+  describe 'Instance Methods' do
+    before(:each) do
+      @astronaut_1 = Astronaut.create!(name: "Buzz Aldrin", age: 40, job: "Space Guy")
+      @astronaut_2 = Astronaut.create!(name: "Neil Armstrong", age: 37, job: "Commander")
+      @mission_1 = @astronaut_1.missions.create!(title: "Capricorn 4", time_in_space: 14)
+      @mission_2 = @astronaut_1.missions.create!(title: "Apollo 13", time_in_space: 10)
+      @mission_3 = @astronaut_1.missions.create!(title: "Gemini 7", time_in_space: 30)
+    end
+
+    it "alphabetizes missions for an astronaut" do
+      # test
+    end
+  end
 end

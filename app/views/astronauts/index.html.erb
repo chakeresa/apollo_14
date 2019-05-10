@@ -10,7 +10,7 @@
     <div class="missions">
       <h3>Missions:</h3>
       <ul>
-        <% astronaut.missions.each do |mission| %>
+        <% astronaut.alphabetical_missions.each do |mission| %>
           <li> <%= mission.title %>
         <% end %>
       </ul>
