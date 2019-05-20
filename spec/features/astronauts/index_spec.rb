@@ -54,5 +54,13 @@ RSpec.describe "As a visitor", type: :feature do
         end
       end
     end
+
+    it "shows the total time in space for each astronaut" do
+      visit astronauts_path
+
+      within("#astronaut-#{@astronaut_1.id}") do
+        expect(page).to have_content("Total Time in Space: #{@astronaut_1.total_time_in_space} days")
+      end
+    end
   end
 end
